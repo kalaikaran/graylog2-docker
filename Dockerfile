@@ -31,6 +31,7 @@ RUN sed -i -e "s/password_secret =$/password_secret = $(pwgen -s 96)/" /etc/gray
 # Get the web-interface
 RUN wget -O - -o /dev/null http://packages.graylog2.org/releases/graylog2-web-interface/graylog2-web-interface-0.92.3.tgz | tar -xz -C /opt
 RUN ln -s /opt/graylog2-web-interface-0.92.3 /opt/graylog2-web-interface
+# check for the url status
 
 # Setup the web-interface
 RUN sed -i -e "s/application.secret=.*$/application.secret=\"$(pwgen -s 96)\"/" /opt/graylog2-web-interface/conf/graylog2-web-interface.conf
