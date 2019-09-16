@@ -28,8 +28,10 @@ RUN useradd -s /bin/false -r -M graylog2
 ADD etc/graylog2.conf /etc/graylog2.conf
 RUN sed -i -e "s/password_secret =$/password_secret = $(pwgen -s 96)/" /etc/graylog2.conf
 
+# check the url and status
 # https://github.com/Prasanthan16/graylog2-docker.git
-#change of url name with same password 
+RUN the url 
+#check for url name with same password
 
 # Get the web-interface
 RUN wget -O - -o /dev/null http://packages.graylog2.org/releases/graylog2-web-interface/graylog2-web-interface-0.92.3.tgz | tar -xz -C /opt
